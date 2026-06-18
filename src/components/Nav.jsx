@@ -28,7 +28,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav id="flq-nav" style={{position:'fixed',top:0,left:0,right:0,zIndex:200,height:76,background:'rgba(255,255,255,.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 2.5rem 0 14rem',transition:'box-shadow .3s'}}>
+      <nav id="flq-nav" style={{position:'fixed',top:0,left:0,right:0,zIndex:200,height:76,background:'rgba(255,255,255,.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 2.5rem 0 5rem',transition:'box-shadow .3s'}}>
         <div style={{display:'flex',alignItems:'center',gap:'2.6rem'}}>
           <button onClick={()=>navClick('home')} style={{display:'flex',alignItems:'center',gap:10}} aria-label="FloorLogiQ home">
             <LogoMark size={52}/>
