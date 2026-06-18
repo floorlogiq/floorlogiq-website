@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 58">
+  <rect x="2"  y="2" width="36" height="36" rx="9" fill="white" stroke="#E8312A" stroke-width="4.5"/>
+  <rect x="26" y="2" width="36" height="36" rx="9" fill="white" stroke="#3DB54A" stroke-width="4.5"/>
+  <rect x="50" y="2" width="36" height="36" rx="9" fill="white" stroke="#1565C0" stroke-width="4.5"/>
+  <rect x="74" y="2" width="36" height="36" rx="9" fill="white" stroke="#F9A825" stroke-width="4.5"/>
+  <text x="57" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-weight="600" font-size="11" fill="#333" letter-spacing="5">ZOHO</text>
+</svg>
