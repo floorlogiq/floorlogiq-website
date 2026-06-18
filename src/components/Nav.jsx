@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function LogoMark({ size = 38 }) {
+function LogoMark({ size = 52 }) {
   const s = size
   return (
     <div style={{position:'relative',width:s,height:s,flexShrink:0}}>
@@ -28,18 +28,18 @@ export default function Nav() {
 
   return (
     <>
-      <nav id="flq-nav" style={{position:'fixed',top:0,left:0,right:0,zIndex:200,height:68,background:'rgba(255,255,255,.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 2.5rem',transition:'box-shadow .3s'}}>
+      <nav id="flq-nav" style={{position:'fixed',top:0,left:0,right:0,zIndex:200,height:76,background:'rgba(255,255,255,.97)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 2.5rem 0 14rem',transition:'box-shadow .3s'}}>
         <div style={{display:'flex',alignItems:'center',gap:'2.6rem'}}>
-          <button onClick={()=>navClick('home')} style={{display:'flex',alignItems:'center',gap:8}} aria-label="FloorLogiQ home">
-            <LogoMark size={38}/>
+          <button onClick={()=>navClick('home')} style={{display:'flex',alignItems:'center',gap:10}} aria-label="FloorLogiQ home">
+            <LogoMark size={52}/>
             <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start',gap:2}}>
-              <div style={{fontWeight:900,textTransform:'uppercase',lineHeight:.92,letterSpacing:'-.4px',fontSize:16,textAlign:'left'}}>FLOOR<br/>LOG<span style={{color:'var(--red)'}}>IQ</span></div>
+              <div style={{fontWeight:900,textTransform:'uppercase',lineHeight:.92,letterSpacing:'-.4px',fontSize:18,textAlign:'left',color:'#0a0a0a'}}>FLOOR<br/>LOG<span style={{color:'var(--red)'}}>IQ</span></div>
               <span style={{fontFamily:'Tahoma,sans-serif',fontStyle:'italic',fontWeight:800,fontSize:9.5,letterSpacing:'.005em',color:'#4a5168',lineHeight:1,whiteSpace:'nowrap'}}>Where factory intelligence begins.</span>
             </div>
           </button>
           <div className="flq-navlinks" style={{display:'flex',alignItems:'center',gap:'1.8rem'}}>
             {[['industries','Industries'],['platform','Platform'],['qa','Services'],['results','Results'],['contact','Contact']].map(([id,label])=>(
-              <button key={id} onClick={()=>navClick(id)} style={{fontSize:14.5,fontWeight:600,color:'#16161e'}}>{label}</button>
+              <button key={id} onClick={()=>navClick(id)} style={{fontSize:16,fontWeight:700,color:'#16161e'}}>{label}</button>
             ))}
           </div>
         </div>
@@ -60,10 +60,10 @@ export default function Nav() {
       </nav>
 
       {menuOpen && (
-        <div style={{position:'fixed',top:68,left:0,right:0,zIndex:199,background:'rgba(255,255,255,.99)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',boxShadow:'0 12px 30px rgba(10,10,10,.1)',padding:'1rem 1.25rem 1.4rem'}}>
+        <div style={{position:'fixed',top:76,left:0,right:0,zIndex:199,background:'rgba(255,255,255,.99)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',boxShadow:'0 12px 30px rgba(10,10,10,.1)',padding:'1rem 1.25rem 1.4rem'}}>
           <div style={{display:'flex',flexDirection:'column'}}>
             {[['industries','Industries'],['platform','Platform'],['qa','Services'],['results','Results'],['contact','Contact']].map(([id,label])=>(
-              <button key={id} onClick={()=>navClick(id)} style={{textAlign:'left',fontSize:16,fontWeight:700,color:'#16161e',padding:'.95rem .25rem',borderBottom:'1px solid #eef0f4'}}>{label}</button>
+              <button key={id} onClick={()=>navClick(id)} style={{textAlign:'left',fontSize:17,fontWeight:700,color:'#16161e',padding:'.95rem .25rem',borderBottom:'1px solid #eef0f4'}}>{label}</button>
             ))}
           </div>
           <a href="tel:+919345666656" style={{display:'flex',alignItems:'center',gap:'.55rem',marginTop:'1.1rem',fontSize:15,fontWeight:700,color:'#16161e'}}>

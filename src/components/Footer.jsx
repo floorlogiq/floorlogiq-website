@@ -4,7 +4,7 @@ function LogoMark({ size=30 }) {
     <div style={{position:'relative',width:s,height:s,flexShrink:0}}>
       <div style={{position:'absolute',inset:0,border:`${s*0.1}px solid #0a0a0a`,transform:'rotate(45deg)'}}></div>
       <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:s*0.333,height:s*0.333,borderRadius:'50%',background:'#0a0a0a'}}></div>
-      <div style={{position:'absolute',bottom:s*0.133,right:s*0.133,width:s*0.233,height:s*0.1,background:'#f7f8fa',transform:'rotate(45deg)',transformOrigin:'right center',zIndex:2}}></div>
+      <div style={{position:'absolute',bottom:s*0.133,right:s*0.133,width:s*0.233,height:s*0.1,background:'#201d2e',transform:'rotate(45deg)',transformOrigin:'right center',zIndex:2}}></div>
       <div style={{position:'absolute',bottom:s*0.067,right:s*0.067,width:s*0.333,height:s*0.1,background:'#0a0a0a',transform:'rotate(45deg)',transformOrigin:'right center'}}></div>
     </div>
   )
@@ -33,9 +33,12 @@ export default function Footer() {
           ))}
         </div>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'2rem',padding:'1.8rem 0',borderTop:'1px solid #e6e8ee',borderBottom:'1px solid #e6e8ee',flexWrap:'wrap'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.7rem'}}>
-            <LogoMark size={30}/>
-            <div style={{fontWeight:900,fontSize:14,lineHeight:.95,textTransform:'uppercase',letterSpacing:'-.2px'}}>FLOOR<br/>LOG<span style={{color:'var(--red)'}}>IQ</span></div>
+          <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
+            <LogoMark size={38}/>
+            <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start',gap:2}}>
+              <div style={{fontWeight:900,textTransform:'uppercase',lineHeight:.92,letterSpacing:'-.4px',fontSize:16}}>FLOOR<br/>LOG<span style={{color:'var(--red)'}}>IQ</span></div>
+              <span style={{fontFamily:'Tahoma,sans-serif',fontStyle:'italic',fontWeight:800,fontSize:9.5,letterSpacing:'.005em',color:'#4a5168',lineHeight:1,whiteSpace:'nowrap'}}>Where factory intelligence begins.</span>
+            </div>
           </div>
           <p style={{fontSize:'.84rem',color:'#4a5168',maxWidth:'42ch'}}>Deploy fast. Operate smart. The industrial intelligence platform for the people who build things.</p>
         </div>

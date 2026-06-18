@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 62">
+  <path d="M40 7 C34 7 20 10 13 19 C9 24 9 28 13 33 C20 40 34 41 40 36 C37 33 28 30 22 25 C19 22 20 19 22 17 C28 12 36 11 40 7Z" fill="#4A6E8C"/>
+  <path d="M40 7 C46 7 60 10 67 17 C71 21 71 25 67 29 C61 35 48 38 40 36 C43 32 52 29 58 24 C61 21 60 17 58 15 C52 11 46 9 40 7Z" fill="#3D5F7A"/>
+  <path d="M40 7 C42 11 43 16 43 21 C43 26 42 31 40 36 C38 31 37 26 37 21 C37 16 38 11 40 7Z" fill="#C8A045" opacity="0.75"/>
+  <text x="40" y="57" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="13" fill="#2D4A6A">NetSuite</text>
+</svg>
