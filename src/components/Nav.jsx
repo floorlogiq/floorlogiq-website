@@ -4,7 +4,7 @@ function LogoMark({ size = 52 }) {
   const s = size
   return (
     <div style={{position:'relative',width:s,height:s,flexShrink:0}}>
-      <div style={{position:'absolute',inset:0,border:`${s*0.105}px solid #0a0a0a`,transform:'rotate(45deg)'}}></div>
+      <div style={{position:'absolute',inset:0,border:`${s*0.105}px solid #0a0a0a`,borderRadius:`${s*0.1}px`,transform:'rotate(45deg)'}}></div>
       <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',width:s*0.316,height:s*0.316,borderRadius:'50%',background:'#0a0a0a'}}></div>
       <div style={{position:'absolute',bottom:s*0.158,right:s*0.132,width:s*0.21,height:s*0.105,transform:'rotate(45deg)',transformOrigin:'right center',zIndex:2,backgroundColor:'#201d2e'}}></div>
       <div style={{position:'absolute',bottom:s*0.079,right:s*0.079,width:s*0.316,height:s*0.105,background:'#0a0a0a',transform:'rotate(45deg)',transformOrigin:'right center'}}></div>
