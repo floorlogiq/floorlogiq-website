@@ -1,4 +1,7 @@
 const personas = [
+  { role:'CIOs & IT Leaders', eyebrow:'Platform owners', outcome:'One governed hub your team can extend and own.',
+    color:'#2563eb', bullets:['Role-based access & audit','Your team extends it','No rip-and-replace'],
+    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
   { role:'Plant Managers', eyebrow:'On the floor', outcome:'Stop bottlenecks in the same shift they start.',
     color:'#cc1f1f', bullets:['Live line status','Downtime the moment it happens','Shift performance at a glance'],
     icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg> },
@@ -14,9 +17,6 @@ const personas = [
   { role:'Continuous Improvement', eyebrow:'Kaizen teams', outcome:'Real baselines, not estimates. Prove every kaizen.',
     color:'#059669', bullets:['True before/after baselines','Variation visible by shift','Measured, not estimated'],
     icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> },
-  { role:'CIOs & IT Leaders', eyebrow:'Platform owners', outcome:'One governed hub your team can extend and own.',
-    color:'#2563eb', bullets:['Role-based access & audit','Your team extends it','No rip-and-replace'],
-    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
 ]
 
 export default function Leaders() {

@@ -46,20 +46,18 @@ export default function Services() {
         <div className="grid-4col" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'2.8rem 1.8rem',marginTop:'4.2rem'}}>
           {solutions.map(({abbr,h,p,checks,icon,color})=>(
             <div key={abbr} data-reveal="true" className="flq-card-wrap">
-              <div className="flq-card" style={{'--card-glow':`${color}2e`,display:'flex',flexDirection:'column',alignItems:'center',textAlign:'center',height:'100%',background:'#fff',border:'1px solid #e6e8ee',borderTop:`4px solid ${color}`,borderRadius:20,padding:'2.4rem 1.5rem 2rem',boxShadow:'0 2px 20px rgba(10,10,10,.07)',position:'relative',overflow:'hidden'}}>
+              <div className="flq-card" style={{'--card-glow':`${color}2e`,display:'flex',flexDirection:'column',alignItems:'center',textAlign:'center',height:'100%',background:'#fff',border:'1px solid #e6e8ee',borderTop:`4px solid ${color}`,borderRadius:20,padding:'2.9rem 1.9rem 2.3rem',boxShadow:'0 2px 20px rgba(10,10,10,.07)',position:'relative'}}>
 
-                <div aria-hidden="true" style={{position:'absolute',bottom:-18,right:4,fontSize:82,fontWeight:900,color:`${color}0d`,lineHeight:1,userSelect:'none',fontFamily:"'DM Mono',monospace,sans-serif",pointerEvents:'none',letterSpacing:'-.04em'}}>{abbr}</div>
-
-                <div style={{position:'relative',width:82,height:82,borderRadius:25,border:`2px solid ${color}33`,display:'flex',alignItems:'center',justifyContent:'center',color,marginTop:'-3.5rem',boxShadow:`0 10px 30px ${color}2e`,background:'#fff'}}>
-                  <div style={{position:'absolute',inset:4,borderRadius:21,background:`linear-gradient(145deg,${color}16,${color}06)`}}></div>
+                <div style={{position:'relative',width:86,height:86,borderRadius:26,border:`2px solid ${color}33`,display:'flex',alignItems:'center',justifyContent:'center',color,marginTop:'-3.7rem',boxShadow:`0 10px 30px ${color}2e`,background:'#fff'}}>
+                  <div style={{position:'absolute',inset:4,borderRadius:22,background:`linear-gradient(145deg,${color}16,${color}06)`}}></div>
                   <div style={{position:'relative'}}>{icon}</div>
-                  <span style={{position:'absolute',top:-9,right:-14,padding:'0 .5rem',height:26,borderRadius:13,background:color,color:'#fff',fontFamily:"'DM Mono',monospace",fontSize:10.5,fontWeight:700,letterSpacing:'.06em',display:'flex',alignItems:'center',justifyContent:'center',border:'3px solid #fff',boxShadow:`0 4px 12px ${color}55`}}>{abbr}</span>
                 </div>
 
-                <h3 style={{position:'relative',fontSize:'1.15rem',fontWeight:900,letterSpacing:'-.028em',lineHeight:1.15,color:'#0a0a0a',margin:'1.5rem 0 .65rem'}}>{h}</h3>
-                <p style={{position:'relative',fontSize:'.86rem',color:'#4a5168',lineHeight:1.7,marginBottom:'1.3rem'}}>{p}</p>
+                <div style={{fontFamily:"'DM Mono',monospace",fontSize:10.5,letterSpacing:'.2em',textTransform:'uppercase',color,margin:'1.5rem 0 .6rem',fontWeight:500}}>{abbr}</div>
+                <h3 style={{fontSize:'1.18rem',fontWeight:900,letterSpacing:'-.028em',lineHeight:1.15,color:'#0a0a0a',marginBottom:'.7rem'}}>{h}</h3>
+                <p style={{fontSize:'.88rem',color:'#4a5168',lineHeight:1.7,marginBottom:'1.4rem'}}>{p}</p>
 
-                <div style={{position:'relative',display:'flex',flexDirection:'column',gap:'.5rem',width:'100%',marginTop:'auto'}}>
+                <div style={{display:'flex',flexDirection:'column',gap:'.55rem',width:'100%',marginTop:'auto'}}>
                   {checks.map(c=>(
                     <div key={c} style={{display:'flex',alignItems:'center',gap:'.5rem',fontSize:'.82rem',fontWeight:600,color:'#16161e',textAlign:'left'}}>
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="20 6 9 17 4 12"/></svg>

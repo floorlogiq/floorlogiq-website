@@ -69,10 +69,10 @@ export default function App() {
       <Problem/>
       <IntegrationHub/>
       <HowItWorks/>
+      <Leaders/>
       <Industries/>
       <Services/>
       <Results/>
-      <Leaders/>
       <Contact/>
       <Footer/>
       <StickyCTA/>
