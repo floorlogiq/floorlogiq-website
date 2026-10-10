@@ -36,7 +36,7 @@ export default function Contact() {
   const labelStyle = {display:'block',fontSize:11,fontWeight:700,letterSpacing:'.04em',textTransform:'uppercase',color:'#4a5168',marginBottom:'.35rem'}
 
   return (
-    <section id="contact" style={{padding:'3rem 2.5rem',background:'transparent'}}>
+    <section id="contact" style={{padding:'4rem clamp(1.5rem,4vw,5rem)',background:'transparent'}}>
       <div className="grid-2col" style={{maxWidth:1100,margin:'0 auto',display:'grid',gridTemplateColumns:'1fr 1.1fr',gap:'4rem',alignItems:'start'}}>
         <div>
           <div style={{display:'inline-flex',alignItems:'center',gap:'.55rem',fontFamily:"'DM Mono',monospace",fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--red)',marginBottom:'1rem'}}>

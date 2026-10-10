@@ -19,22 +19,42 @@ input,select,textarea { font-family:inherit; }
 @keyframes flqTravel { 0%{left:0;opacity:0} 8%{opacity:1} 92%{opacity:1} 100%{left:100%;opacity:0} }
 
 [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-.revealed{opacity:1!important;transform:none!important}
+.revealed{opacity:1!important;transform:translateY(0)}
 
+.flq-card{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s,background .22s}
+.flq-card-wrap:hover>.flq-card{transform:translateY(-10px)!important;box-shadow:0 28px 60px var(--card-glow,rgba(204,31,31,.18))!important}
+
+/* ── Large monitors: 1600px+ ── */
+@media (min-width:1600px){
+  .grid-4col{gap:1.8rem!important}
+  .grid-3col{gap:1.8rem!important}
+}
+
+/* ── Laptop: tighten grids a bit ── */
+@media (max-width:1280px){
+  .grid-3col{grid-template-columns:repeat(2,1fr)!important}
+  .howitworks-grid{gap:1.2rem!important}
+}
+
+/* ── Tablet ── */
 @media (max-width:1024px){
   .grid-4col{grid-template-columns:repeat(2,1fr)!important}
   .grid-3col{grid-template-columns:repeat(2,1fr)!important}
   .grid-5col{grid-template-columns:repeat(3,1fr)!important}
+  .howitworks-grid{grid-template-columns:repeat(2,1fr)!important}
+  .industry-panel{grid-template-columns:1fr!important}
 }
+
+/* ── Mobile ── */
 @media (max-width:768px){
   .grid-4col,.grid-3col,.grid-5col,.grid-2col{grid-template-columns:1fr!important}
   .industry-panel{grid-template-columns:1fr!important}
+  .howitworks-grid{grid-template-columns:1fr!important}
   section{padding-left:1.25rem!important;padding-right:1.25rem!important}
   .flq-navlinks{display:none!important}
   .flq-burger{display:flex!important}
 }
 @media (max-width:560px){
   .grid-4col{grid-template-columns:1fr!important}
-  .howitworks-grid{grid-template-columns:1fr!important}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}html{scroll-behavior:auto}}

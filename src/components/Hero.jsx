@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="home" style={{paddingTop:76}}>
+    <section id="home" style={{paddingTop:72}}>
       <div style={{textAlign:'center',padding:'3.5rem 2.5rem 0',position:'relative',overflow:'hidden',display:'flex',flexDirection:'column',alignItems:'center'}}>
         <div aria-hidden="true" style={{position:'absolute',inset:0,pointerEvents:'none',background:'radial-gradient(58% 46% at 50% -4%, rgba(204,31,31,.11), transparent 70%), radial-gradient(40% 42% at 84% 16%, rgba(91,48,223,.09), transparent 72%), radial-gradient(42% 44% at 12% 26%, rgba(3,202,175,.07), transparent 72%)'}}></div>
         <div aria-hidden="true" style={{position:'absolute',inset:0,pointerEvents:'none',backgroundImage:'linear-gradient(#e6e8ee 1px,transparent 1px),linear-gradient(90deg,#e6e8ee 1px,transparent 1px)',backgroundSize:'60px 60px',opacity:.35,WebkitMaskImage:'radial-gradient(ellipse 75% 60% at 50% 18%,black 28%,transparent 72%)',maskImage:'radial-gradient(ellipse 75% 60% at 50% 18%,black 28%,transparent 72%)',left:-3,top:5}}></div>

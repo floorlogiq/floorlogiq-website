@@ -9,8 +9,8 @@ const cards = [
 
 export default function Platform() {
   return (
-    <section id="platform" style={{padding:'3rem 2.5rem',background:'transparent',width:'100%'}}>
-      <div style={{margin:'0 auto',width:'100%'}}>
+    <section id="platform" style={{padding:'4rem clamp(1.5rem,4vw,5rem)',background:'transparent'}}>
+      <div style={{maxWidth:1400,margin:'0 auto',width:'100%'}}>
         <div style={{maxWidth:780,margin:'0 auto 2rem',textAlign:'center'}}>
           <div style={{display:'inline-flex',alignItems:'center',gap:'.55rem',fontFamily:"'DM Mono',monospace",fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--red)',marginBottom:'1rem'}}>
             <span style={{width:22,height:1,background:'var(--red)'}}></span>Composable platform
@@ -20,7 +20,9 @@ export default function Platform() {
         </div>
         <div className="grid-3col" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1.2rem'}}>
           {cards.map(({n,eyebrow,h,p,checks})=>(
-            <div key={n} data-reveal="true" style={{border:'1px solid #e6e8ee',borderRadius:18,padding:'2.1rem',background:'#fff',transition:'box-shadow .25s,transform .25s'}}>
+            <div key={n} data-reveal="true" className="flq-card-wrap">
+            <div className="flq-card"
+              style={{border:'1px solid #e6e8ee',borderRadius:18,padding:'2.1rem',background:'#fff',boxShadow:'0 2px 20px rgba(10,10,10,.07)',height:'100%'}}>
               <div style={{display:'flex',alignItems:'center',gap:'.9rem',marginBottom:'1.1rem'}}>
                 <span style={{fontFamily:"'DM Mono',monospace",fontSize:13,fontWeight:700,color:'#fff',background:'var(--red)',width:34,height:34,borderRadius:9,display:'flex',alignItems:'center',justifyContent:'center'}}>{n}</span>
                 <span style={{fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:'.12em',textTransform:'uppercase',color:'#8a90a8'}}>{eyebrow}</span>
@@ -34,6 +36,7 @@ export default function Platform() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           ))}
         </div>

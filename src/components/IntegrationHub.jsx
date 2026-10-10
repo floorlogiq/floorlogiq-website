@@ -121,7 +121,9 @@ export default function IntegrationHub() {
           <div style={{fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--red)',marginBottom:'.35rem'}}>44 connectors</div>
           <div style={{fontSize:'1.3rem',fontWeight:900,letterSpacing:'-.025em',lineHeight:1.1,color:'#0a0a0a'}}>We connect with</div>
         </div>
-        <div style={{flex:1,overflow:'hidden',WebkitMaskImage:'linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)',maskImage:'linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)'}}>
+        <div style={{flex:1,overflow:'hidden',WebkitMaskImage:'linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)',maskImage:'linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)'}}
+          onMouseEnter={e=>{const t=e.currentTarget.firstChild;if(t)t.style.animationPlayState='paused'}}
+          onMouseLeave={e=>{const t=e.currentTarget.firstChild;if(t)t.style.animationPlayState='running'}}>
           <div style={{display:'flex',alignItems:'center',gap:'3.2rem',width:'max-content',animation:'flqMarquee 90s linear infinite'}}>
             {[...erpLogos,...erpLogos].map((logo,i)=>(
               <ErpLogo key={i} {...logo} ariaHidden={i>=erpLogos.length?'true':undefined}/>
@@ -131,7 +133,7 @@ export default function IntegrationHub() {
       </div>
 
       {/* Hub section */}
-      <div style={{maxWidth:'none',margin:'0 auto'}}>
+      <div style={{maxWidth:1050,margin:'0 auto'}}>
         <div style={{textAlign:'center',maxWidth:760,margin:'0 auto 2.2rem'}}>
           <div style={{display:'inline-flex',alignItems:'center',gap:'.55rem',fontFamily:"'DM Mono',monospace",fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',color:'var(--red)',marginBottom:'1rem'}}>
             <span style={{width:22,height:1,background:'var(--red)'}}></span>One hub, every system live
@@ -141,7 +143,6 @@ export default function IntegrationHub() {
         </div>
 
         <div data-reveal="true" style={{position:'relative',borderRadius:20,overflow:'hidden',background:'radial-gradient(60% 75% at 50% 38%,rgba(204,31,31,.08),transparent 70%),radial-gradient(46% 58% at 86% 26%,rgba(91,48,223,.07),transparent 72%),radial-gradient(46% 58% at 12% 78%,rgba(3,202,175,.06),transparent 72%),#ffffff',boxShadow:'0 18px 60px rgba(10,10,10,.12)',border:'1px solid #e6e8ee'}}>
-          <div aria-hidden="true" style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(10,10,10,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.04) 1px,transparent 1px)',backgroundSize:'38px 38px'}}></div>
 
           {/* Top bar */}
           <div style={{position:'relative',display:'flex',alignItems:'center',justifyContent:'center',padding:'1.2rem 1.6rem',borderBottom:'1px solid rgba(10,10,10,.08)',backgroundColor:'#ffffff'}}>
@@ -173,11 +174,11 @@ export default function IntegrationHub() {
               <line id="flq-spoke-erp" x1="500" y1="260" x2="120" y2="94" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
               <line id="flq-spoke-mes" x1="500" y1="260" x2="500" y2="42" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
               <line id="flq-spoke-wms" x1="500" y1="260" x2="880" y2="94" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-cmms" x1="500" y1="260" x2="960" y2="260" stroke="#fd8b09" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
+              <line id="flq-spoke-cmms" x1="500" y1="260" x2="900" y2="260" stroke="#fd8b09" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
               <line id="flq-spoke-plc" x1="500" y1="260" x2="880" y2="426" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
               <line id="flq-spoke-qms" x1="500" y1="260" x2="500" y2="478" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
               <line id="flq-spoke-iot" x1="500" y1="260" x2="120" y2="426" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-ai" x1="500" y1="260" x2="40" y2="260" stroke="#2a74d6" strokeWidth="1.5" strokeOpacity="0.42" strokeLinecap="round" strokeDasharray="2 8"/>
+              <line id="flq-spoke-ai" x1="500" y1="260" x2="100" y2="260" stroke="#2a74d6" strokeWidth="1.5" strokeOpacity="0.42" strokeLinecap="round" strokeDasharray="2 8"/>
               <circle cx="500" cy="260" r="120" fill="url(#flqHubG)"/>
               <circle cx="500" cy="260" r="86" fill="none" stroke="#7a3df0" strokeWidth="1.4" strokeOpacity="0.32" strokeDasharray="6 11">
                 <animateTransform attributeName="transform" type="rotate" from="0 500 260" to="360 500 260" dur="36s" repeatCount="indefinite"/>
@@ -232,7 +233,7 @@ export default function IntegrationHub() {
               <span style={{fontSize:15,lineHeight:1,flexShrink:0}}>📦</span>
               <span style={{fontFamily:"'Saira',sans-serif",fontSize:12,fontWeight:700,color:'#1f9d63'}}>WMS</span><span style={{fontFamily:"'Saira',sans-serif",fontWeight:700,fontSize:11,color:'#4a5168'}}>Warehouse</span>
             </div>
-            <div id="flq-node-cmms" style={{...chipStyle('#fff3e2'),left:'96%',top:'50%'}}>
+            <div id="flq-node-cmms" style={{...chipStyle('#fff3e2'),left:'90%',top:'50%'}}>
               <span style={{fontSize:15,lineHeight:1,flexShrink:0}}>🔧</span>
               <span style={{fontFamily:"'Saira',sans-serif",fontSize:12,fontWeight:700,color:'#b45309'}}>CMMS</span><span style={{fontFamily:"'Saira',sans-serif",fontWeight:700,fontSize:11,color:'#4a5168'}}>Maintenance</span>
             </div>
@@ -273,7 +274,7 @@ export default function IntegrationHub() {
               </svg>
               <span style={{fontFamily:"'Saira',sans-serif",fontSize:12,fontWeight:700,color:'#1f9d63'}}>IoT</span><span style={{fontFamily:"'Saira',sans-serif",fontWeight:700,fontSize:11,color:'#4a5168'}}>Sensors</span>
             </div>
-            <div id="flq-node-ai" style={{...chipStyle('#f2eefe'),left:'4%',top:'50%'}}>
+            <div id="flq-node-ai" style={{...chipStyle('#f2eefe'),left:'10%',top:'50%'}}>
               <span style={{fontSize:15,lineHeight:1,flexShrink:0}}>🤖</span>
               <span style={{fontFamily:"'Saira',sans-serif",fontSize:12,fontWeight:700,color:'#4f46e5'}}>AI</span><span style={{fontFamily:"'Saira',sans-serif",fontWeight:700,fontSize:11,color:'#4a5168'}}>Services</span>
             </div>

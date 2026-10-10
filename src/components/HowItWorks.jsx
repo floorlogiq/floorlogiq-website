@@ -18,7 +18,7 @@ export default function HowItWorks() {
         <h2 style={{color:'#0a0a0a',fontSize:'clamp(2rem,3.6vw,3rem)',fontWeight:900,letterSpacing:'-.035em',lineHeight:1.08}}>The tagline isn't a slogan.<br/>It's the <span style={{color:'var(--red)'}}>implementation plan</span>.</h2>
         <p style={{color:'#4a5168',fontSize:'clamp(1rem,1.4vw,1.15rem)',lineHeight:1.7,margin:'1.1rem auto 0',maxWidth:'56ch'}}>Start with one line or one zone, connect it to the systems you already run, then scale the same platform across the enterprise — without rebuilding.</p>
       </div>
-      <div style={{position:'relative',maxWidth:1240,margin:'0 auto',padding:'2.5rem 2.5rem 2rem'}}>
+      <div style={{position:'relative',maxWidth:1400,margin:'0 auto',padding:'2.5rem clamp(1.5rem,4vw,5rem) 2rem'}}>
         <div style={{position:'absolute',top:'calc(3.5rem + 28px)',left:'calc(2.5rem + 12.5%)',right:'calc(2.5rem + 12.5%)',height:3,background:'#e6e8ee',borderRadius:2,overflow:'visible'}}>
           <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,var(--red),rgba(204,31,31,.18))',borderRadius:2}}></div>
           <div style={{position:'absolute',top:'50%',left:0,width:13,height:13,marginTop:-6.5,borderRadius:'50%',background:'var(--red)',boxShadow:'0 0 14px var(--red)',animation:'flqTravel 4.5s linear infinite'}}></div>
