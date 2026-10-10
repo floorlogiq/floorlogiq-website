@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+const LINKS = [['industries','Industries'],['qa','Services'],['results','Results'],['contact','Contact']]
 
 function LogoMark({ size = 52 }) {
   const s = size
@@ -23,6 +25,22 @@ function LogoMark({ size = 52 }) {
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [active, setActive] = useState('')
+
+  useEffect(()=>{
+    const onScroll = ()=>{
+      // the section whose top has most recently passed the nav line wins
+      let current = ''
+      for (const [id] of LINKS) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= 140) current = id
+      }
+      setActive(current)
+    }
+    window.addEventListener('scroll', onScroll, { passive:true })
+    onScroll()
+    return ()=>window.removeEventListener('scroll', onScroll)
+  }, [])
 
   function scrollTo(id) {
     if (id === 'home') { window.scrollTo({top:0,behavior:'smooth'}); return; }
@@ -47,8 +65,14 @@ export default function Nav() {
             </div>
           </button>
           <div className="flq-navlinks" style={{display:'flex',alignItems:'center',gap:'1.4rem'}}>
-            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['contact','Contact']].map(([id,label])=>(
-              <button key={id} onClick={()=>navClick(id)} style={{fontSize:14,fontWeight:600,color:'#16161e'}}>{label}</button>
+            {LINKS.map(([id,label])=>(
+              <button key={id} onClick={()=>navClick(id)}
+                style={{position:'relative',fontSize:14,fontWeight:active===id?700:600,color:active===id?'var(--red)':'#16161e',padding:'.4rem 0',transition:'color .2s'}}
+                onMouseEnter={e=>{if(active!==id)e.currentTarget.style.color='var(--red)'}}
+                onMouseLeave={e=>{if(active!==id)e.currentTarget.style.color='#16161e'}}>
+                {label}
+                <span style={{position:'absolute',left:0,right:0,bottom:0,height:2,borderRadius:2,background:'var(--red)',transform:active===id?'scaleX(1)':'scaleX(0)',transformOrigin:'left',transition:'transform .28s cubic-bezier(.22,1,.36,1)'}}></span>
+              </button>
             ))}
           </div>
         </div>
@@ -71,8 +95,8 @@ export default function Nav() {
       {menuOpen && (
         <div style={{position:'fixed',top:72,left:0,right:0,zIndex:199,background:'rgba(255,255,255,.99)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',boxShadow:'0 12px 30px rgba(10,10,10,.1)',padding:'1rem 1.25rem 1.4rem'}}>
           <div style={{display:'flex',flexDirection:'column'}}>
-            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['contact','Contact']].map(([id,label])=>(
-              <button key={id} onClick={()=>navClick(id)} style={{textAlign:'left',fontSize:17,fontWeight:700,color:'#16161e',padding:'.95rem .25rem',borderBottom:'1px solid #eef0f4'}}>{label}</button>
+            {LINKS.map(([id,label])=>(
+              <button key={id} onClick={()=>navClick(id)} style={{textAlign:'left',fontSize:17,fontWeight:700,color:active===id?'var(--red)':'#16161e',padding:'.95rem .25rem',borderBottom:'1px solid #eef0f4'}}>{label}</button>
             ))}
           </div>
           <a href="tel:+919345666656" style={{display:'flex',alignItems:'center',gap:'.55rem',marginTop:'1.1rem',fontSize:15,fontWeight:700,color:'#16161e'}}>

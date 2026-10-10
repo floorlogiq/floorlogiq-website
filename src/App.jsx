@@ -2,13 +2,14 @@ import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Proof from './components/Proof'
+import Connectors from './components/Connectors'
 import Problem from './components/Problem'
 import StickyCTA from './components/StickyCTA'
 import IntegrationHub from './components/IntegrationHub'
 import HowItWorks from './components/HowItWorks'
 import Industries from './components/Industries'
-import Platform from './components/Platform'
 import Services from './components/Services'
+import Results from './components/Results'
 import Leaders from './components/Leaders'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -64,12 +65,13 @@ export default function App() {
       <Nav/>
       <Hero/>
       <Proof/>
+      <Connectors/>
       <Problem/>
       <IntegrationHub/>
       <HowItWorks/>
       <Industries/>
-      <Platform/>
       <Services/>
+      <Results/>
       <Leaders/>
       <Contact/>
       <Footer/>

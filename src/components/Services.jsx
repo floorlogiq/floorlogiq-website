@@ -15,14 +15,18 @@ const solutions = [
 ]
 
 const qaItems = [
-  { h:'Functional & acceptance', p:'Tested against your SOPs and acceptance criteria before go-live.',
-    color:'#2563eb', bg:'rgba(37,99,235,.07)', hoverBg:'rgba(37,99,235,.13)', shadow:'rgba(37,99,235,.28)' },
-  { h:'Integration & regression', p:'ERP, EDI and device integrations validated end-to-end on every change.',
-    color:'#7c3aed', bg:'rgba(124,58,237,.07)', hoverBg:'rgba(124,58,237,.13)', shadow:'rgba(124,58,237,.28)' },
-  { h:'Performance & load', p:'Throughput and peak-shift load proven against targets.',
-    color:'#d97706', bg:'rgba(217,119,6,.07)', hoverBg:'rgba(217,119,6,.13)', shadow:'rgba(217,119,6,.28)' },
-  { h:'Validation & UAT', p:'Documented evidence and e-signature workflows for audits.',
-    color:'#059669', bg:'rgba(5,150,105,.07)', hoverBg:'rgba(5,150,105,.13)', shadow:'rgba(5,150,105,.28)' },
+  { n:1, eyebrow:'Functional', h:'Functional & acceptance', p:'Every screen and workflow tested against your SOPs and acceptance criteria before go-live.',
+    color:'#cc1f1f', bullets:['SOP-driven test cases','Screen-by-screen coverage','Signed acceptance pack'],
+    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> },
+  { n:2, eyebrow:'Integration', h:'Integration & regression', p:'ERP, EDI and device integrations validated end-to-end on every change, so nothing breaks silently.',
+    color:'#7c3aed', bullets:['End-to-end ERP flows','Device & EDI validation','Full regression on change'],
+    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> },
+  { n:3, eyebrow:'Performance', h:'Performance & load', p:'Throughput and peak-shift load proven against your targets before a single operator depends on it.',
+    color:'#d97706', bullets:['Peak-shift load runs','Throughput vs. target','Latency under pressure'],
+    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><circle cx="12" cy="14" r="8"/><path d="m12 14 3-3"/></svg> },
+  { n:4, eyebrow:'Validation', h:'Validation & UAT', p:'Documented evidence and e-signature workflows, handed over audit-ready for FDA, ISO or IATF.',
+    color:'#059669', bullets:['Documented evidence','E-signature workflows','Audit-ready handover'],
+    icon:<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> },
 ]
 
 export default function Services() {
@@ -82,20 +86,30 @@ export default function Services() {
                 onMouseLeave={e=>{e.currentTarget.style.background='var(--red)';e.currentTarget.style.transform=''}}>Talk to our QA team →</button>
             </div>
           </div>
-          <div className="grid-4col" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1rem'}}>
-            {qaItems.map(({h,p,color,bg,hoverBg,shadow})=>(
-              <div key={h} className="flq-card-wrap"
-                style={{'--card-glow':shadow}}
-                onMouseEnter={e=>{e.currentTarget.firstElementChild.style.background=hoverBg}}
-                onMouseLeave={e=>{e.currentTarget.firstElementChild.style.background=bg}}>
-              <div className="flq-card"
-                style={{padding:'1.6rem 1.8rem',background:bg,border:`1px solid ${color}22`,borderRadius:16,cursor:'default',height:'100%'}}>
-                <div style={{width:38,height:38,borderRadius:10,background:`${color}18`,border:`1px solid ${color}33`,display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'.9rem'}}>
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div className="grid-4col" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'2rem',marginTop:'4rem'}}>
+            {qaItems.map(({n,eyebrow,h,p,color,icon,bullets})=>(
+              <div key={h} className="flq-card-wrap">
+                <div className="flq-card" style={{'--card-glow':`${color}2e`,display:'flex',flexDirection:'column',alignItems:'center',textAlign:'center',height:'100%',background:'#fff',border:'1px solid #e6e8ee',borderTop:`4px solid ${color}`,borderRadius:20,padding:'2.4rem 1.5rem 1.9rem',boxShadow:'0 2px 20px rgba(10,10,10,.07)'}}>
+
+                  <div style={{position:'relative',width:80,height:80,borderRadius:24,border:`2px solid ${color}33`,display:'flex',alignItems:'center',justifyContent:'center',color,marginTop:'-3.4rem',boxShadow:`0 10px 30px ${color}2e`,background:'#fff'}}>
+                    <div style={{position:'absolute',inset:4,borderRadius:20,background:`linear-gradient(145deg,${color}16,${color}06)`}}></div>
+                    <div style={{position:'relative'}}>{icon}</div>
+                    <span style={{position:'absolute',top:-9,right:-9,width:29,height:29,borderRadius:'50%',background:color,color:'#fff',fontSize:13,fontWeight:900,display:'flex',alignItems:'center',justifyContent:'center',border:'3px solid #fff',boxShadow:`0 4px 12px ${color}55`}}>{n}</span>
+                  </div>
+
+                  <div style={{fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:'.2em',textTransform:'uppercase',color,margin:'1.4rem 0 .55rem',fontWeight:500}}>{eyebrow}</div>
+                  <h3 style={{fontSize:'1.12rem',fontWeight:900,letterSpacing:'-.028em',lineHeight:1.15,color:'#0a0a0a',marginBottom:'.65rem'}}>{h}</h3>
+                  <p style={{fontSize:'.86rem',color:'#4a5168',lineHeight:1.7,marginBottom:'1.2rem'}}>{p}</p>
+
+                  <div style={{display:'flex',flexDirection:'column',gap:'.5rem',width:'100%',marginTop:'auto'}}>
+                    {bullets.map(b=>(
+                      <div key={b} style={{display:'flex',alignItems:'center',gap:'.5rem',fontSize:'.8rem',fontWeight:600,color:'#16161e',textAlign:'left'}}>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0}}><polyline points="20 6 9 17 4 12"/></svg>
+                        {b}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div style={{fontSize:'.92rem',fontWeight:800,letterSpacing:'-.01em',lineHeight:1.25,marginBottom:'.4rem',color:'#0a0a0a'}}>{h}</div>
-                <div style={{fontSize:'.81rem',color:'#4a5168',lineHeight:1.6}}>{p}</div>
-              </div>
               </div>
             ))}
           </div>
