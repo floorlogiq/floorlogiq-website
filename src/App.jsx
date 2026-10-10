@@ -68,8 +68,8 @@ export default function App() {
       <Connectors/>
       <Problem/>
       <IntegrationHub/>
-      <HowItWorks/>
       <Leaders/>
+      <HowItWorks/>
       <Industries/>
       <Services/>
       <Results/>
