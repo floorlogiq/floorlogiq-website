@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import Proof from './components/Proof'
+import Problem from './components/Problem'
+import StickyCTA from './components/StickyCTA'
 import IntegrationHub from './components/IntegrationHub'
 import HowItWorks from './components/HowItWorks'
 import Industries from './components/Industries'
@@ -61,6 +64,8 @@ export default function App() {
       <div id="flq-progress" style={{position:'fixed',top:0,left:0,height:3,width:0,background:'var(--red)',zIndex:300}}></div>
       <Nav/>
       <Hero/>
+      <Proof/>
+      <Problem/>
       <IntegrationHub/>
       <HowItWorks/>
       <Industries/>
@@ -70,6 +75,7 @@ export default function App() {
       <Leaders/>
       <Contact/>
       <Footer/>
+      <StickyCTA/>
     </div>
   )
 }

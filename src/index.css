@@ -56,5 +56,6 @@ input,select,textarea { font-family:inherit; }
 }
 @media (max-width:560px){
   .grid-4col{grid-template-columns:1fr!important}
+  .flq-sticky-label{display:none!important}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
