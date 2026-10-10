@@ -37,6 +37,10 @@ input,select,textarea { font-family:inherit; }
 }
 
 /* ── Tablet ── */
+@media (max-width:1100px){
+  .flq-rail{display:none!important}
+}
+
 @media (max-width:1024px){
   .grid-4col{grid-template-columns:repeat(2,1fr)!important}
   .grid-3col{grid-template-columns:repeat(2,1fr)!important}

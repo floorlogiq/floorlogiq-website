@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
 const stats = [
-  { to:99.8,  suffix:'%',  decimals:1, label:'Inventory accuracy',  sub:'confirmed at the point of work' },
+  { to:30,    suffix:'+',  decimals:0, label:'ISO 22400 KPIs',      sub:'computed live from floor events' },
   { to:5,     prefix:'<',  suffix:'s', decimals:0, label:'ERP posting time', sub:'scan to posted transaction' },
   { to:44,    suffix:'+',  decimals:0, label:'Pre-built connectors', sub:'ERP, EDI, device and cloud' },
-  { to:3,     suffix:'×',  decimals:0, label:'Throughput vs. paper', sub:'measured on live pilots' },
+  { to:3,     suffix:'×',  decimals:0, label:'Faster than paper',    sub:'guided, scan-driven execution' },
 ]
 
 function useCountUp(target, decimals, run) {

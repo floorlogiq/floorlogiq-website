@@ -9,7 +9,6 @@ import HowItWorks from './components/HowItWorks'
 import Industries from './components/Industries'
 import Platform from './components/Platform'
 import Services from './components/Services'
-import Results from './components/Results'
 import Leaders from './components/Leaders'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -71,7 +70,6 @@ export default function App() {
       <Industries/>
       <Platform/>
       <Services/>
-      <Results/>
       <Leaders/>
       <Contact/>
       <Footer/>

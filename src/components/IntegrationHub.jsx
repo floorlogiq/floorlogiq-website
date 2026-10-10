@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 const L = (f) => `${import.meta.env.BASE_URL}logos/${f}`
 const erpLogos = [
@@ -33,14 +33,16 @@ const erpLogos = [
   { name:'EDI Nation',   color:'#0057A8' },
 ]
 
-function ErpLogo({ name, src, color, ariaHidden }) {
-  const [failed, setFailed] = useState(false)
-  if (!src || failed) return (
-    <span style={{fontFamily:'Arial,sans-serif',fontSize:20,fontWeight:800,color,whiteSpace:'nowrap',lineHeight:1,flexShrink:0}} aria-hidden={ariaHidden}>
+function ErpLogo({ name, color, ariaHidden }) {
+  return (
+    <span
+      style={{fontFamily:"'Saira',sans-serif",fontSize:27,fontWeight:800,color,whiteSpace:'nowrap',lineHeight:1,flexShrink:0,letterSpacing:'-.025em',opacity:.88,transition:'opacity .2s'}}
+      aria-hidden={ariaHidden}
+      onMouseEnter={e=>{e.currentTarget.style.opacity='1'}}
+      onMouseLeave={e=>{e.currentTarget.style.opacity='.88'}}>
       {name}
     </span>
   )
-  return <img src={src} alt={name} height={48} style={{height:48,width:'auto',maxWidth:140,objectFit:'contain',display:'block',flexShrink:0}} onError={()=>setFailed(true)} aria-hidden={ariaHidden}/>
 }
 
 const nodes = {
@@ -162,51 +164,94 @@ export default function IntegrationHub() {
           </div>
 
           {/* SVG topology */}
-          <div style={{position:'relative',height:600}}>
-            <svg viewBox="0 0 1000 520" preserveAspectRatio="none" style={{position:'absolute',inset:0,width:'100%',height:'100%',background:'transparent'}}>
+          <div style={{position:'relative',width:'100%',aspectRatio:'1000 / 520'}}>
+            <svg viewBox="0 0 1000 520" style={{position:'absolute',inset:0,width:'100%',height:'100%',background:'transparent'}}>
               <defs>
                 <radialGradient id="flqHubG" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.16"/>
-                  <stop offset="55%" stopColor="#7a3df0" stopOpacity="0.07"/>
+                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.18"/>
+                  <stop offset="45%" stopColor="#7a3df0" stopOpacity="0.08"/>
                   <stop offset="100%" stopColor="#7a3df0" stopOpacity="0"/>
                 </radialGradient>
+                <linearGradient id="flqG1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.55"/>
+                  <stop offset="100%" stopColor="#1f9d63" stopOpacity="0.22"/>
+                </linearGradient>
+                <linearGradient id="flqG2" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.55"/>
+                  <stop offset="100%" stopColor="#7a3df0" stopOpacity="0.22"/>
+                </linearGradient>
+                <linearGradient id="flqG3" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.55"/>
+                  <stop offset="100%" stopColor="#fd8b09" stopOpacity="0.26"/>
+                </linearGradient>
+                <linearGradient id="flqG4" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#cc1f1f" stopOpacity="0.5"/>
+                  <stop offset="100%" stopColor="#2a74d6" stopOpacity="0.3"/>
+                </linearGradient>
               </defs>
-              <line id="flq-spoke-erp" x1="500" y1="260" x2="120" y2="94" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-mes" x1="500" y1="260" x2="500" y2="42" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-wms" x1="500" y1="260" x2="880" y2="94" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-cmms" x1="500" y1="260" x2="900" y2="260" stroke="#fd8b09" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-plc" x1="500" y1="260" x2="880" y2="426" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-qms" x1="500" y1="260" x2="500" y2="478" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-iot" x1="500" y1="260" x2="120" y2="426" stroke="#1f9d63" strokeWidth="1.5" strokeOpacity="0.3" strokeLinecap="round"/>
-              <line id="flq-spoke-ai" x1="500" y1="260" x2="100" y2="260" stroke="#2a74d6" strokeWidth="1.5" strokeOpacity="0.42" strokeLinecap="round" strokeDasharray="2 8"/>
-              <circle cx="500" cy="260" r="120" fill="url(#flqHubG)"/>
-              <circle cx="500" cy="260" r="86" fill="none" stroke="#7a3df0" strokeWidth="1.4" strokeOpacity="0.32" strokeDasharray="6 11">
-                <animateTransform attributeName="transform" type="rotate" from="0 500 260" to="360 500 260" dur="36s" repeatCount="indefinite"/>
+
+              {/* Soft hub aura */}
+              <circle cx="500" cy="260" r="150" fill="url(#flqHubG)"/>
+
+              {/* Curved spokes — a gentle vortex toward the hub */}
+              <g fill="none" strokeLinecap="round">
+                <path id="flq-spoke-erp"  d="M500,260 Q310,113 120,94"  stroke="url(#flqG1)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-mes"  d="M500,260 Q531,137 500,42"  stroke="url(#flqG1)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-wms"  d="M500,260 Q737,220 880,94"  stroke="url(#flqG1)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-cmms" d="M500,260 Q725,316 900,260" stroke="url(#flqG3)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-plc"  d="M500,260 Q690,407 880,426" stroke="url(#flqG2)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-qms"  d="M500,260 Q469,383 500,478" stroke="url(#flqG3)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-iot"  d="M500,260 Q263,300 120,426" stroke="url(#flqG1)" strokeWidth="1.8" strokeOpacity="0.85"/>
+                <path id="flq-spoke-ai"   d="M500,260 Q275,204 100,260" stroke="url(#flqG4)" strokeWidth="1.8" strokeOpacity="0.9" strokeDasharray="3 9">
+                  <animate attributeName="stroke-dashoffset" values="24;0" dur="1.4s" repeatCount="indefinite"/>
+                </path>
+              </g>
+
+              {/* Orbital rings */}
+              <circle cx="500" cy="260" r="88" fill="none" stroke="#7a3df0" strokeWidth="1.3" strokeOpacity="0.3" strokeDasharray="5 12">
+                <animateTransform attributeName="transform" type="rotate" from="0 500 260" to="360 500 260" dur="38s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="500" cy="260" r="103" fill="none" stroke="#cc1f1f" strokeWidth="1" strokeOpacity="0.16" strokeDasharray="2 13">
-                <animateTransform attributeName="transform" type="rotate" from="360 500 260" to="0 500 260" dur="52s" repeatCount="indefinite"/>
+              <circle cx="500" cy="260" r="108" fill="none" stroke="#cc1f1f" strokeWidth="1" strokeOpacity="0.17" strokeDasharray="2 14">
+                <animateTransform attributeName="transform" type="rotate" from="360 500 260" to="0 500 260" dur="55s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="500" cy="260" r="55" fill="none" stroke="#cc1f1f" strokeWidth="1" opacity="0.3">
-                <animate attributeName="r" values="55;135" dur="7s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.32;0" dur="7s" repeatCount="indefinite"/>
+
+              {/* Expanding pulse rings */}
+              <circle cx="500" cy="260" r="58" fill="none" stroke="#cc1f1f" strokeWidth="1.2">
+                <animate attributeName="r" values="58;150" dur="6s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.35;0" dur="6s" repeatCount="indefinite"/>
               </circle>
-              <circle cx="500" cy="260" r="55" fill="none" stroke="#7a3df0" strokeWidth="1" opacity="0.3">
-                <animate attributeName="r" values="55;135" dur="7s" begin="3.5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.30;0" dur="7s" begin="3.5s" repeatCount="indefinite"/>
+              <circle cx="500" cy="260" r="58" fill="none" stroke="#7a3df0" strokeWidth="1.2">
+                <animate attributeName="r" values="58;150" dur="6s" begin="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.3;0" dur="6s" begin="2s" repeatCount="indefinite"/>
               </circle>
-              {/* Animated data packets */}
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.5s" repeatCount="indefinite" path="M500,260 L120,94"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.5s" begin="2.25s" repeatCount="indefinite" path="M120,94 L500,260"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.2s" repeatCount="indefinite" path="M500,260 L500,42"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.2s" begin="2.1s" repeatCount="indefinite" path="M500,42 L500,260"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.8s" repeatCount="indefinite" path="M500,260 L880,94"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.8s" begin="2.4s" repeatCount="indefinite" path="M880,94 L500,260"/></circle>
-              <circle r="3" fill="#fd8b09" style={{filter:'drop-shadow(0 0 4px #fd8b09)'}}><animateMotion dur="6s" repeatCount="indefinite" path="M500,260 L960,260"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.5s" repeatCount="indefinite" path="M880,426 L500,260"/></circle>
-              <circle r="3.2" fill="#1f9d63" style={{filter:'drop-shadow(0 0 4px #1f9d63)'}}><animateMotion dur="4.4s" repeatCount="indefinite" path="M500,478 L500,260"/></circle>
-              <circle r="3.5" fill="#1f9d63" style={{filter:'drop-shadow(0 0 5px #1f9d63)'}}><animateMotion dur="3.8s" repeatCount="indefinite" path="M120,426 L500,260"/></circle>
-              <circle r="3.5" fill="#1f9d63" style={{filter:'drop-shadow(0 0 5px #1f9d63)'}}><animateMotion dur="3.8s" begin="1.9s" repeatCount="indefinite" path="M120,426 L500,260"/></circle>
-              <circle r="2.8" fill="#2a74d6" style={{filter:'drop-shadow(0 0 4px #2a74d6)'}}><animateMotion dur="6.5s" repeatCount="indefinite" path="M40,260 L500,260"/></circle>
+              <circle cx="500" cy="260" r="58" fill="none" stroke="#1f9d63" strokeWidth="1.2">
+                <animate attributeName="r" values="58;150" dur="6s" begin="4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.28;0" dur="6s" begin="4s" repeatCount="indefinite"/>
+              </circle>
+
+              {/* Data packets flowing along the curves, both directions */}
+              <g>
+                <circle r="3.4" fill="#1f9d63" style={{filter:'drop-shadow(0 0 5px #1f9d63)'}}><animateMotion dur="4.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q310,113 120,94"/></circle>
+                <circle r="3.4" fill="#cc1f1f" style={{filter:'drop-shadow(0 0 5px #cc1f1f)'}}><animateMotion dur="4.6s" begin="2.3s" repeatCount="indefinite" path="M500,260 Q310,113 120,94"/></circle>
+
+                <circle r="3.4" fill="#1f9d63" style={{filter:'drop-shadow(0 0 5px #1f9d63)'}}><animateMotion dur="4.1s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q531,137 500,42"/></circle>
+                <circle r="3.4" fill="#cc1f1f" style={{filter:'drop-shadow(0 0 5px #cc1f1f)'}}><animateMotion dur="4.1s" begin="2.05s" repeatCount="indefinite" path="M500,260 Q531,137 500,42"/></circle>
+
+                <circle r="3.4" fill="#1f9d63" style={{filter:'drop-shadow(0 0 5px #1f9d63)'}}><animateMotion dur="4.9s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q737,220 880,94"/></circle>
+                <circle r="3.4" fill="#cc1f1f" style={{filter:'drop-shadow(0 0 5px #cc1f1f)'}}><animateMotion dur="4.9s" begin="2.45s" repeatCount="indefinite" path="M500,260 Q737,220 880,94"/></circle>
+
+                <circle r="3.2" fill="#fd8b09" style={{filter:'drop-shadow(0 0 5px #fd8b09)'}}><animateMotion dur="5.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q725,316 900,260"/></circle>
+
+                <circle r="3.4" fill="#7a3df0" style={{filter:'drop-shadow(0 0 5px #7a3df0)'}}><animateMotion dur="4.4s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q690,407 880,426"/></circle>
+                <circle r="3.4" fill="#cc1f1f" style={{filter:'drop-shadow(0 0 5px #cc1f1f)'}}><animateMotion dur="4.4s" begin="2.2s" repeatCount="indefinite" path="M500,260 Q690,407 880,426"/></circle>
+
+                <circle r="3.2" fill="#fd8b09" style={{filter:'drop-shadow(0 0 5px #fd8b09)'}}><animateMotion dur="4.3s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q469,383 500,478"/></circle>
+
+                <circle r="3.6" fill="#1f9d63" style={{filter:'drop-shadow(0 0 6px #1f9d63)'}}><animateMotion dur="3.9s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q263,300 120,426"/></circle>
+                <circle r="3.6" fill="#1f9d63" style={{filter:'drop-shadow(0 0 6px #1f9d63)'}}><animateMotion dur="3.9s" begin="1.95s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q263,300 120,426"/></circle>
+
+                <circle r="3" fill="#2a74d6" style={{filter:'drop-shadow(0 0 5px #2a74d6)'}}><animateMotion dur="5.8s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear" path="M500,260 Q275,204 100,260"/></circle>
+              </g>
             </svg>
 
             {/* Hub center */}

@@ -47,7 +47,7 @@ export default function Nav() {
             </div>
           </button>
           <div className="flq-navlinks" style={{display:'flex',alignItems:'center',gap:'1.4rem'}}>
-            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['results','Results'],['contact','Contact']].map(([id,label])=>(
+            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['contact','Contact']].map(([id,label])=>(
               <button key={id} onClick={()=>navClick(id)} style={{fontSize:14,fontWeight:600,color:'#16161e'}}>{label}</button>
             ))}
           </div>
@@ -71,7 +71,7 @@ export default function Nav() {
       {menuOpen && (
         <div style={{position:'fixed',top:72,left:0,right:0,zIndex:199,background:'rgba(255,255,255,.99)',backdropFilter:'blur(16px)',WebkitBackdropFilter:'blur(16px)',borderBottom:'1px solid #e6e8ee',boxShadow:'0 12px 30px rgba(10,10,10,.1)',padding:'1rem 1.25rem 1.4rem'}}>
           <div style={{display:'flex',flexDirection:'column'}}>
-            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['results','Results'],['contact','Contact']].map(([id,label])=>(
+            {[['industries','Industries'],['platform','Platform'],['qa','Services'],['contact','Contact']].map(([id,label])=>(
               <button key={id} onClick={()=>navClick(id)} style={{textAlign:'left',fontSize:17,fontWeight:700,color:'#16161e',padding:'.95rem .25rem',borderBottom:'1px solid #eef0f4'}}>{label}</button>
             ))}
           </div>

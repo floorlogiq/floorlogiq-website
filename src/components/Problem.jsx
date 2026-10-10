@@ -17,6 +17,24 @@ const gaps = [
     p:'Lot trace, device history, and e-signatures live across spreadsheets and paper. Every audit becomes a week of reconstruction instead of a query.',
     icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>,
   },
+  {
+    stat:'Three systems. Three different numbers.',
+    h:'Reports nobody agrees on',
+    p:'Production, finance, and the warehouse each pull their own extract. The Monday meeting is spent reconciling spreadsheets instead of deciding anything.',
+    icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="13" y="8" width="3" height="10"/></svg>,
+  },
+  {
+    stat:'The spec changed. The floor never knew.',
+    h:'Revisions that arrive late',
+    p:'An engineering change clears on Tuesday and reaches the line on Friday — after a shift has already been built to the superseded drawing.',
+    icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>,
+  },
+  {
+    stat:'New operator. Two weeks of shadowing.',
+    h:'Knowledge locked in people',
+    p:'The process lives in the heads of your most experienced staff. Every hire, every vacation, and every retirement is a throughput risk.',
+    icon:<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  },
 ]
 
 export default function Problem() {
