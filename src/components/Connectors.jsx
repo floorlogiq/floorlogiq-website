@@ -46,8 +46,8 @@ function ErpLogo({ name, src, color, ariaHidden }) {
 
 export default function Connectors() {
   return (
-    <section style={{background:'transparent',padding:'1rem clamp(1.5rem,4vw,5rem) 2rem',position:'relative'}}>
-      <div style={{maxWidth:1180,margin:'0 auto',height:112,display:'flex',alignItems:'center',gap:'2.4rem',background:'#fff',border:'1px solid #e6e8ee',borderRadius:18,boxShadow:'0 1px 4px rgba(10,10,10,.06)',overflow:'hidden',padding:'0 2.2rem'}}>
+    <section style={{background:'transparent',padding:'1.5rem 0 2.5rem',position:'relative'}}>
+      <div style={{width:'100%',height:112,display:'flex',alignItems:'center',gap:'2.4rem',background:'#fff',borderTop:'1px solid #e6e8ee',borderBottom:'1px solid #e6e8ee',boxShadow:'0 1px 4px rgba(10,10,10,.04)',overflow:'hidden',padding:'0 clamp(1.25rem,3vw,3rem)'}}>
         <div style={{flexShrink:0,maxWidth:210}}>
           <div style={{fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:'.16em',textTransform:'uppercase',color:'var(--red)',marginBottom:'.35rem'}}>44 connectors</div>
           <div style={{fontSize:'1.3rem',fontWeight:900,letterSpacing:'-.025em',lineHeight:1.1,color:'#0a0a0a'}}>We connect with</div>
