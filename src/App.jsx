@@ -1,20 +1,28 @@
 import { useEffect } from 'react'
 import Nav from './components/Nav'
-import Hero from './components/Hero'
-import Proof from './components/Proof'
-import Connectors from './components/Connectors'
-import Problem from './components/Problem'
 import StickyCTA from './components/StickyCTA'
-import IntegrationHub from './components/IntegrationHub'
-import HowItWorks from './components/HowItWorks'
-import Industries from './components/Industries'
-import Services from './components/Services'
-import Results from './components/Results'
-import Leaders from './components/Leaders'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Home from './home/Home'
+import SolutionsPage from './pages/SolutionsPage'
+import IndustriesPage from './pages/IndustriesPage'
+import ApproachPage from './pages/ApproachPage'
+import { useRoute } from './pages/ui'
+
+const PAGES = { '/solutions':SolutionsPage, '/industries':IndustriesPage, '/approach':ApproachPage }
 
 export default function App() {
+  const route = useRoute()
+  const Page = PAGES[route] || Home   // anything unknown falls back to the home page
+
+  // a link such as floorlogiq.com/#contact opens the home page scrolled to that section
+  useEffect(() => {
+    const id = window.location.hash.slice(1)
+    if (!id || id.startsWith('/')) return
+    const t = setTimeout(() => { const el = document.getElementById(id); if (el) el.scrollIntoView() }, 300)
+    return () => clearTimeout(t)
+  }, [])
+
   useEffect(() => {
     // Nav scroll shadow + progress bar
     const nav = document.getElementById('flq-nav')
@@ -56,23 +64,14 @@ export default function App() {
       revealObs.disconnect()
       clearTimeout(t)
     }
-  }, [])
+  }, [route])
 
   return (
     <div style={{position:'relative'}}>
       <div aria-hidden="true" style={{position:'absolute',inset:0,zIndex:-1,pointerEvents:'none',background:'radial-gradient(46% 22% at 50% 1%,rgba(204,31,31,.08),transparent 72%),radial-gradient(38% 18% at 86% 12%,rgba(91,48,223,.06),transparent 72%),radial-gradient(40% 16% at 8% 26%,rgba(3,202,175,.055),transparent 72%),radial-gradient(44% 15% at 92% 42%,rgba(204,31,31,.05),transparent 72%),radial-gradient(42% 15% at 6% 58%,rgba(91,48,223,.05),transparent 72%),radial-gradient(46% 15% at 70% 73%,rgba(3,202,175,.05),transparent 72%),radial-gradient(40% 15% at 18% 90%,rgba(204,31,31,.045),transparent 72%)'}}></div>
       <div id="flq-progress" style={{position:'fixed',top:0,left:0,height:3,width:0,background:'var(--red)',zIndex:300}}></div>
       <Nav/>
-      <Hero/>
-      <Proof/>
-      <Connectors/>
-      <Problem/>
-      <IntegrationHub/>
-      <Leaders/>
-      <HowItWorks/>
-      <Industries/>
-      <Services/>
-      <Results/>
+      <Page/>
       <Contact/>
       <Footer/>
       <StickyCTA/>

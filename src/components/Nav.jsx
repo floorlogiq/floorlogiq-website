@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useRoute, goPage, goSection } from '../pages/ui'
 
-const LINKS = [['industries','Industries'],['qa','Services'],['results','Results'],['contact','Contact']]
+const LINKS = [['/solutions','Solutions'],['/industries','Industries'],['/approach','How we deliver'],['contact','Contact']]
+// on the home page, these sections light up the matching nav item as you scroll
+const SPY = [['contact','contact']]
 
-function LogoMark({ size = 52 }) {
+export function LogoMark({ size = 52 }) {
   const s = size
   const cx = s / 2, cy = s / 2
   const stroke = s * 0.105
@@ -26,26 +29,25 @@ function LogoMark({ size = 52 }) {
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [active, setActive] = useState('')
+  const route = useRoute()
 
   useEffect(()=>{
+    const passed = id => { const el = document.getElementById(id); return el && el.getBoundingClientRect().top <= 140 }
     const onScroll = ()=>{
-      // the section whose top has most recently passed the nav line wins
-      let current = ''
-      for (const [id] of LINKS) {
-        const el = document.getElementById(id)
-        if (el && el.getBoundingClientRect().top <= 140) current = id
-      }
+      let current = route === '/' ? '' : route
+      if (route === '/') { for (const [id,item] of SPY) if (passed(id)) current = item }
+      else if (passed('contact')) current = 'contact'
       setActive(current)
     }
     window.addEventListener('scroll', onScroll, { passive:true })
     onScroll()
     return ()=>window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [route])
 
   function scrollTo(id) {
-    if (id === 'home') { window.scrollTo({top:0,behavior:'smooth'}); return; }
-    const el = document.getElementById(id)
-    if (el) window.scrollTo({top: el.getBoundingClientRect().top + window.scrollY - 64, behavior:'smooth'})
+    if (id === 'home') { goPage('/'); return }
+    if (id.startsWith('/')) { goPage(id); return }
+    goSection(id)
   }
 
   function navClick(id) {
@@ -77,11 +79,11 @@ export default function Nav() {
           </div>
         </div>
         <div style={{display:'flex',alignItems:'center',gap:'.9rem'}}>
-          <a href="tel:+919345666656" style={{display:'flex',alignItems:'center',gap:'.4rem',fontSize:14,fontWeight:700,color:'#16161e'}}>
+          <a href="tel:+919345666656" aria-label="Call +91 93456 66656" style={{display:'flex',alignItems:'center',gap:'.4rem',fontSize:14,fontWeight:700,color:'#16161e'}}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span style={{whiteSpace:'nowrap'}}>+91-93456-66656</span>
+            <span className="flq-nav-phone" style={{whiteSpace:'nowrap'}}>+91-93456-66656</span>
           </a>
-          <button onClick={()=>navClick('contact')} style={{background:'var(--red)',color:'#fff',padding:'.6rem 1.3rem',borderRadius:8,fontSize:14,fontWeight:700,transition:'background .18s,transform .2s'}}
+          <button className="flq-nav-cta" onClick={()=>navClick('contact')} style={{background:'var(--red)',color:'#fff',padding:'.6rem 1.3rem',borderRadius:8,fontSize:14,fontWeight:700,transition:'background .18s,transform .2s'}}
             onMouseEnter={e=>{e.target.style.background='var(--red2)';e.target.style.transform='translateY(-1px)'}}
             onMouseLeave={e=>{e.target.style.background='var(--red)';e.target.style.transform=''}}>Book a demo</button>
           <button className="flq-burger" onClick={()=>setMenuOpen(o=>!o)} aria-label="Open menu" aria-expanded={menuOpen} style={{display:'none',alignItems:'center',justifyContent:'center',width:42,height:42,borderRadius:10,border:'1px solid #e6e8ee',background:'#fff'}}>
